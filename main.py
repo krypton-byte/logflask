@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import os,sqlite3
 from flask import *
 MyApp = Flask(__name__)
