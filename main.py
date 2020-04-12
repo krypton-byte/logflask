@@ -86,18 +86,21 @@ def index():
 	elif request.method == 'POST':
 		email = request.form.get('email')
 		password = request.form.get('password')
-		c  = sqlite3.connect('data.db')
-		db = c.cursor()
-		print('terlogin')
-		if db.execute(f"SELECT * FROM FORMULIR WHERE EMAIL='{email}' AND PASSWORD='{password}'").fetchmany():
-			data=db.execute(f"SELECT * FROM FORMULIR WHERE EMAIL='{email}' AND PASSWORD='{password}'").fetchmany()[0]
-			session['email'] = data[1]
-			session['password'] = data[2]
-			print('nama : %s\npass : %s'%(data[1],data[2]))
-			return redirect(url_for('das'))
-		else:
-			print('gagal')
+		if (True in [(i in ['=','\'','"','`'])for i in list(email)]) or (True in [(i in ['=','\'','"','`'])for i in list(password)]):
 			return render_template('index.html')
+		else:
+			c  = sqlite3.connect('data.db')
+			db = c.cursor()
+			print('login\nemail : %s password : %s'%(email,password))
+			if db.execute(f"SELECT * FROM FORMULIR WHERE EMAIL='{email}' AND PASSWORD='{password}'").fetchmany():
+				data=db.execute(f"SELECT * FROM FORMULIR WHERE EMAIL='{email}' AND PASSWORD='{password}'").fetchmany()[0]
+				session['email'] = data[1]
+				session['password'] = data[2]
+				print('nama : %s\npass : %s'%(data[1],data[2]))
+				return redirect(url_for('das'))
+			else:
+				print('gagal')
+				return render_template('index.html')
 	else:
 		return render_template('index.html')
 
