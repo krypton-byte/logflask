@@ -144,4 +144,4 @@ def index():
 def error(e):
 	return render_template('error.html'),404
 if __name__ == '__main__':
-	MyApp.run(host='127.0.0.1',port=int(os.environ.get('PORT','5000')),debug=True)
+	MyApp.run(host='0.0.0.0',port=int(os.environ.get('PORT','5000')),debug=True)
