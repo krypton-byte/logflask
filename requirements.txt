@@ -4,7 +4,7 @@ bs4==0.0.1
 certifi==2020.4.5.1
 chardet==3.0.4
 click==7.1.1
-Django==3.0.5
+Django==3.1.6
 Flask==1.1.2
 idna==2.9
 igtools3==0.6
