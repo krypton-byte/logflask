@@ -9,7 +9,7 @@ Flask==1.1.2
 idna==2.9
 igtools3==0.6
 itsdangerous==1.1.0
-Jinja2==2.11.1
+Jinja2==2.11.3
 MarkupSafe==1.1.1
 PyJWT==1.7.1
 pytz==2019.3
