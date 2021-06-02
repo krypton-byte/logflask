@@ -20,6 +20,6 @@ spark-parser==1.8.9
 sqlparse==0.3.1
 twilio==6.38.0
 uncompyle6==3.6.5
-urllib3==1.25.8
+urllib3==1.26.5
 Werkzeug==1.0.1
 xdis==4.2.4
